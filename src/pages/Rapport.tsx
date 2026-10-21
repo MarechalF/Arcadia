@@ -3,6 +3,7 @@ import { Badge, Button, Card, CardHeader, CardTitle, Input, Label, Separator } f
 import { useScenarioActif } from "@/hooks";
 import { referentiel } from "@/data/referentiel";
 import { ecartObjectif, evaluerReforme } from "@/lib/reformes";
+import { useAppStore } from "@/store/useAppStore";
 import { formatDelta, formatMdE, formatPct } from "@/lib/format";
 
 const CATEGORIES_LABEL: Record<string, string> = {
@@ -15,8 +16,9 @@ const CATEGORIES_LABEL: Record<string, string> = {
 
 export function Rapport() {
   const scenario = useScenarioActif();
+  const dispatcher = useAppStore((s) => s.dispatcher);
   const [titre, setTitre] = useState("Proposition de trajectoire budgétaire");
-  const [selection, setSelection] = useState<string[]>(referentiel.mesures.slice(0, 3).map((m) => m.id));
+  const selection = scenario.mesures ?? [];
 
   const mesuresChoisies = useMemo(
     () => referentiel.mesures.filter((m) => selection.includes(m.id)),
@@ -32,7 +34,7 @@ export function Rapport() {
     lignes.push(`# ${titre}`);
     lignes.push("");
     lignes.push(`**Millésime des données :** ${referentiel.millésime}  `);
-    lignes.push(`**Scénario de base :** ${scenario.nom}  `);
+    lignes.push(`**Scénario de base :** ${scenario.nom} (mesures enregistrées dans le scénario)  `);
     lignes.push(`**Généré le :** ${new Date().toLocaleDateString("fr-FR")}`);
     lignes.push("");
     lignes.push("## Synthèse");
@@ -124,7 +126,7 @@ export function Rapport() {
                 key={m.id}
                 type="button"
                 aria-pressed={coche}
-                onClick={() => setSelection((prev) => (coche ? prev.filter((x) => x !== m.id) : [...prev, m.id]))}
+                onClick={() => dispatcher({ type: "basculerMesure", mesureId: m.id })}
                 className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${coche ? "border-blue-500 bg-blue-950/50 text-blue-100" : "border-bord bg-slate-900/50 text-slate-300 hover:border-slate-500"}`}
               >
                 {coche ? "✓ " : ""}

@@ -4,6 +4,7 @@ import { Badge, Button, Card, CardHeader, CardTitle, Input, Label, Separator, Ta
 import { useScenarioActif } from "@/hooks";
 import { referentiel } from "@/data/referentiel";
 import { ecartObjectif, evaluerReforme } from "@/lib/reformes";
+import { useAppStore } from "@/store/useAppStore";
 import { formatDelta, formatMdE, formatPct } from "@/lib/format";
 import type { MesureReforme } from "@/types";
 
@@ -17,7 +18,8 @@ const CATEGORIES: Array<{ id: MesureReforme["categorie"]; nom: string }> = [
 
 export function Reformes() {
   const scenario = useScenarioActif();
-  const [selection, setSelection] = useState<string[]>([]);
+  const dispatcher = useAppStore((s) => s.dispatcher);
+  const selection = scenario.mesures ?? [];
   const [ciblePct, setCiblePct] = useState(-3);
 
   const mesures = referentiel.mesures;
@@ -132,11 +134,7 @@ export function Reformes() {
                             type="checkbox"
                             aria-label={`Sélectionner la mesure ${m.nom}`}
                             checked={coche}
-                            onChange={() =>
-                              setSelection((prev) =>
-                                prev.includes(m.id) ? prev.filter((x) => x !== m.id) : [...prev, m.id],
-                              )
-                            }
+                            onChange={() => dispatcher({ type: "basculerMesure", mesureId: m.id })}
                             className="mt-1 h-4 w-4"
                           />
                           <span>
@@ -249,7 +247,13 @@ export function Reformes() {
         <Separator className="my-3" />
         <p className="text-xs text-slate-500">
           Solde de référence du scénario « {scenario.nom} » : {formatMdE(scenario.overrides ? soldeFinal - evaluation.impactTotal : soldeFinal)}.{" "}
-          <Button variant="ghost" className="ml-1" onClick={() => setSelection([])}>
+          <Button
+            variant="ghost"
+            className="ml-1"
+            onClick={() => {
+              for (const id of selection) dispatcher({ type: "basculerMesure", mesureId: id });
+            }}
+          >
             Tout désélectionner
           </Button>
         </p>

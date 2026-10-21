@@ -17,6 +17,7 @@ import { AidesSubventions } from "@/pages/AidesSubventions";
 import { Reformes } from "@/pages/Reformes";
 import { SuiviArgent } from "@/pages/SuiviArgent";
 import { Rapport } from "@/pages/Rapport";
+import { ExecutionReelle } from "@/pages/ExecutionReelle";
 import "@/index.css";
 
 function AppRoutes() {
@@ -41,6 +42,7 @@ function AppRoutes() {
           <Route path="reformes" element={<Reformes />} />
           <Route path="suivi" element={<SuiviArgent />} />
           <Route path="rapport" element={<Rapport />} />
+          <Route path="execution" element={<ExecutionReelle />} />
         </Route>
       </Routes>
     </HashRouter>

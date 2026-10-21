@@ -17,6 +17,7 @@ export type ActionScenario =
   | { type: "activer"; id: string }
   | { type: "setMontant"; cle: string; montant: number }
   | { type: "setNote"; cle: string; note: string }
+  | { type: "basculerMesure"; mesureId: string }
   | { type: "viderOverrides"; id: string }
   | { type: "reinitialiser" };
 
@@ -35,6 +36,7 @@ export function reduireScenarios(etat: EtatScenarios, action: ActionScenario): E
         dateCreation: new Date().toISOString(),
         overrides: { ...base.overrides },
         notes: { ...base.notes },
+        mesures: [...(base.mesures ?? [])],
       };
       return { scenarios: [...etat.scenarios, nouveau], scenarioActifId: nouveau.id };
     }
@@ -71,11 +73,25 @@ export function reduireScenarios(etat: EtatScenarios, action: ActionScenario): E
             : s,
         ),
       };
+    case "basculerMesure": {
+      const avecMesures = (s: Scenario) => s.mesures ?? [];
+      return {
+        ...etat,
+        scenarios: etat.scenarios.map((s) => {
+          if (s.id !== etat.scenarioActifId) return s;
+          const actuelles = avecMesures(s);
+          const nouvelles = actuelles.includes(action.mesureId)
+            ? actuelles.filter((m) => m !== action.mesureId)
+            : [...actuelles, action.mesureId];
+          return { ...s, mesures: nouvelles };
+        }),
+      };
+    }
     case "viderOverrides":
       return {
         ...etat,
         scenarios: etat.scenarios.map((s) =>
-          s.id === action.id ? { ...s, overrides: {}, notes: {} } : s,
+          s.id === action.id ? { ...s, overrides: {}, notes: {}, mesures: [] } : s
         ),
       };
     case "reinitialiser":

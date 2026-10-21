@@ -22,6 +22,7 @@ const routes = [
   { to: "/suivi", label: "Suivi de l'argent" },
   { to: "/reformes", label: "Atelier de réformes" },
   { to: "/rapport", label: "Rapport" },
+  { to: "/execution", label: "Exécution réelle" },
 ];
 
 export function Layout() {

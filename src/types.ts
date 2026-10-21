@@ -52,6 +52,20 @@ export interface Scenario {
   /** Clé = id de n'importe quelle entité modifiée. */
   overrides: Record<string, number>;
   notes: Record<string, string>;
+  /** Mesures de réforme activées dans ce scénario (ids de MesureReforme). */
+  mesures?: string[];
+}
+
+/** Une ligne d'exécution réelle (ex. agrégat mensuel Chorus par programme). */
+export interface LigneExecution {
+  id: string;
+  /** Id de l'entité du référentiel correspondante (mission, programme, ligne…), si reconnue. */
+  entiteId?: string;
+  nom: string;
+  /** Montant exécuté, en Md€, cumulé à la date. */
+  montantExecute: number;
+  /** Millésime/période (ex. "2025 - cumul novembre"). */
+  periode: string;
 }
 
 export interface PosteBranche {
