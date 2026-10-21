@@ -185,3 +185,39 @@ describe("Conformité au référentiel LFI 2026", () => {
     }
   });
 });
+
+describe("Atelier de réformes", () => {
+  it("chaque mesure a un impact, des contre-arguments et un chiffrage sourcé", () => {
+    expect(referentiel.mesures.length).toBeGreaterThanOrEqual(10);
+    for (const mesure of referentiel.mesures) {
+      expect(typeof mesure.impactSolde).toBe("number");
+      expect(mesure.detail.length).toBeGreaterThan(20);
+      expect(mesure.contreArguments.length).toBeGreaterThanOrEqual(3);
+    }
+  });
+
+  it("les dépenses fiscales sont positives et documentées", () => {
+    expect(referentiel.depensesFiscales.length).toBeGreaterThanOrEqual(10);
+    for (const df of referentiel.depensesFiscales) {
+      expect(df.montant).toBeGreaterThan(0);
+      expect(df.beneficiaire.length).toBeGreaterThan(3);
+    }
+  });
+
+  it("les ids des mesures et dépenses fiscales sont uniques", () => {
+    const idsMesures = new Set(referentiel.mesures.map((m) => m.id));
+    expect(idsMesures.size).toBe(referentiel.mesures.length);
+    const idsDf = new Set(referentiel.depensesFiscales.map((d) => d.id));
+    expect(idsDf.size).toBe(referentiel.depensesFiscales.length);
+  });
+
+  it("les overrides de mesures ciblent des entités existantes du référentiel", () => {
+    const livre = aplatirGrandLivre(referentiel, scenarioLfi);
+    const idsConnus = new Set(livre.map((l) => l.id));
+    for (const mesure of referentiel.mesures) {
+      for (const cle of Object.keys(mesure.overrides)) {
+        expect(idsConnus.has(cle)).toBe(true);
+      }
+    }
+  });
+});

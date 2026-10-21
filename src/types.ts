@@ -119,6 +119,34 @@ export interface SerieHistorique {
   points: PointHistorique[];
 }
 
+/** Une mesure de réforme applicable en un clic : overrides + chiffrage documenté. */
+export interface MesureReforme {
+  id: string;
+  nom: string;
+  categorie: "fiscalite" | "depenses" | "securite-sociale" | "aide" | "investissement";
+  /** Impact net sur le solde public, en Md€/an (positif = améliore le solde). */
+  impactSolde: number;
+  /** Overrides appliqués au référentiel si la mesure est choisie. */
+  overrides: Record<string, number>;
+  detail: string;
+  /** Arguments contre la mesure, pour la crédibilité du débat. */
+  contreArguments: string[];
+  /** Effet PIB à 5 ans en % (multiplicateur budgétaire), indicatif. */
+  effetPib5ansPct?: number;
+  /** Coût de transition temporaire, Md€/an pendant n ans (négatif = coûte). */
+  coutTransition?: { montant: number; dureeAnnees: number };
+}
+
+/** Dépense fiscale : une « niche » = recette renoncée par l'État. */
+export interface DepenseFiscale {
+  id: string;
+  nom: string;
+  /** Md€/an de recettes renoncées. */
+  montant: number;
+  beneficiaire: string;
+  detail: string;
+}
+
 export interface Referentiel {
   millésime: string;
   source: string;
@@ -131,6 +159,8 @@ export interface Referentiel {
   operateurs: OperateurPublic[];
   /** Aides et subventions vers les bénéficiaires finaux (ordres de grandeur Md€/an). */
   aides: AideSubvention[];
+  mesures: MesureReforme[];
+  depensesFiscales: DepenseFiscale[];
   macro: IndicateursMacro;
 }
 

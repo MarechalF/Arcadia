@@ -14,6 +14,9 @@ import { FluxSankeyPage } from "@/pages/FluxSankey";
 import { TitresBudgetaires } from "@/pages/TitresBudgetaires";
 import { Historique } from "@/pages/Historique";
 import { AidesSubventions } from "@/pages/AidesSubventions";
+import { Reformes } from "@/pages/Reformes";
+import { SuiviArgent } from "@/pages/SuiviArgent";
+import { Rapport } from "@/pages/Rapport";
 import "@/index.css";
 
 function AppRoutes() {
@@ -35,6 +38,9 @@ function AppRoutes() {
           <Route path="titres" element={<TitresBudgetaires />} />
           <Route path="historique" element={<Historique />} />
           <Route path="aides" element={<AidesSubventions />} />
+          <Route path="reformes" element={<Reformes />} />
+          <Route path="suivi" element={<SuiviArgent />} />
+          <Route path="rapport" element={<Rapport />} />
         </Route>
       </Routes>
     </HashRouter>

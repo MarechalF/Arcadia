@@ -19,6 +19,9 @@ const routes = [
   { to: "/titres", label: "Titres budgétaires" },
   { to: "/historique", label: "Historique 2015-2026" },
   { to: "/aides", label: "Aides & subventions" },
+  { to: "/suivi", label: "Suivi de l'argent" },
+  { to: "/reformes", label: "Atelier de réformes" },
+  { to: "/rapport", label: "Rapport" },
 ];
 
 export function Layout() {
