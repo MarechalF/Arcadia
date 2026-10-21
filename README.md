@@ -4,36 +4,37 @@ Tableau de bord d'exploration, d'audit et de simulation des finances publiques f
 
 > ⚠️ Les données intégrées sont des **ordres de grandeur indicatifs**. Le périmètre « temps réel » n'existe pas : l'exécution budgétaire est publiée mensuellement (Chorus, data.gouv.fr). Le millésime est affiché dans le bandeau de chaque page.
 
-## Installation
+## Installation et mise à jour — la façon la plus simple (Windows)
+
+Le projet contient deux fichiers à **double-cliquer** :
+
+- **`installer-mettre-a-jour.bat`** : télécharge la dernière version du code, construit l'installateur Windows et ouvre le dossier `release/`. Double-clique ensuite sur `Flux Publics Setup X.X.X.exe` pour installer l'application comme un logiciel normal (raccourci bureau + menu Démarrer).
+- **`lancer-flux-publics.bat`** : lance l'application si elle est déjà construite (sinon bascule en mode développeur).
+
+Une fois l'application **installée via l'installateur**, la mise à jour est **100 % automatique** (intégrée via `electron-updater`) :
+- au démarrage, l'application vérifie les nouvelles versions sur GitHub Releases ;
+- si une mise à jour existe, elle se télécharge toute seule et propose « Redémarrer maintenant » ;
+- tes scénarios (localStorage) sont conservés entre les mises à jour.
+
+Aucune ligne de commande à taper, jamais. Pour les développeurs, les commandes restent disponibles ci-dessous.
+
+## Commandes développeur
 
 ```bash
-npm i
+npm i                  # dépendances
 npm run dev            # application web (http://localhost:5173)
 npm run electron:dev   # application de bureau en mode développement
+npm test               # tests d'invariants arithmétiques (Vitest)
+npm run typecheck      # TypeScript strict
+npm run build          # build web de production (dist/)
+npm run electron:build # build + installateur dans release/ + publication GitHub Release
 ```
 
-## Application de bureau
-
-```bash
-npm run electron:build  # construit le web + paque l'installateur dans release/
-```
-
-Produit dans `release/` :
-- **Windows** : installateur NSIS (`.exe`)
-- **Linux** : AppImage + paquet `.deb`
+L'installateur produit dans `release/` :
+- **Windows** : installateur NSIS (`.exe`) — raccourci bureau + menu Démarrer
+- **Linux** : AppImage auto-updatable
 - **macOS** : `.dmg`
 
-Lancer directement le binaire Electron local sans installer : `npm run electron:start`.
-
-L'application de bureau embarque le build web (chemins relatifs + `HashRouter` pour le protocole `file://`), isole le rendu (`contextIsolation`, `sandbox`, pas d'intégration Node), et ouvre les liens externes dans le navigateur système. Les scénarios sont persistés dans le `localStorage` du profil Electron.
-
-## Tests, typecheck, build
-
-```bash
-npm test          # tests d'invariants arithmétiques (Vitest)
-npm run typecheck # TypeScript strict
-npm run build     # build web de production (dist/)
-```
 
 ## Structure
 
@@ -55,7 +56,7 @@ src/
     agregats.test.ts   # 16 tests : invariants, totaux LFI exacts, titres, historique
   hooks.ts             # useAgregats, useTrajectoire, useGrandLivre (mémoïsés)
   components/          # Layout, BarreScenarios, MontantInput, primitives UI
-  pages/               # 12 pages (voir navigation)
+  pages/               # 13 pages (voir navigation)
 ```
 
 ## Pages
@@ -71,6 +72,7 @@ src/
 10. **Flux (Sankey)** — diagramme de flux recettes → branches → dépenses avec seuil de lisibilité réglable.
 11. **Titres budgétaires** — ventilation titre 1 (dette) / 2 (personnel) / 3 (fonctionnement) / 6 (subventions) / 7 (investissement), indicateur de rigidité (% titres 1+2).
 12. **Historique 2015-2026** — séries pluriannuelles (dépenses, recettes, dette % PIB, déficit % PIB), repère « fin des données réelles », recettes vs dépenses composées.
+13. **Aides & subventions** — 19 dispositifs documentés (RSA, APL, CIR, allocation chômage, dotations…), filtres par bénéficiaire, recherche, camembert par bénéficiaire, et volet pédagogique détaillé sur la CDC : circuit de l'argent étape par étape et fonds gérés (livret A, fonds d'épargne, ERFP, consignations).
 
 ## Architecture des scénarios
 
