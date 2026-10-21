@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { clsx } from "clsx";
 import { BarreScenarios } from "@/components/BarreScenarios";
+import { MiseAJourBouton } from "@/components/MiseAJourBouton";
 import { useAppStore } from "@/store/useAppStore";
 import { referentiel } from "@/data/referentiel";
 
@@ -63,6 +63,9 @@ export function Layout() {
             {Object.keys(actif.overrides).length} modification(s)
           </p>
         ) : null}
+        <div className="border-t border-bord p-3">
+          <MiseAJourBouton />
+        </div>
       </aside>
       <main className="flex-1 p-6">
         <div
@@ -74,7 +77,6 @@ export function Layout() {
             ? "Valeurs modifiées affichées avec un badge Δ."
             : ""}
         </div>
-        <BandeauMiseAJour />
         <BarreScenarios />
         <Outlet />
       </main>
@@ -82,32 +84,3 @@ export function Layout() {
   );
 }
 
-interface InterfaceBureau {
-  estApplicationBureau?: boolean;
-  versionApp?: string;
-  surMiseAJour?: (callback: (donnees: { texte: string; info: { version?: string; percent?: number } | null }) => void) => void;
-}
-
-declare global {
-  interface Window {
-    fluxPublics?: InterfaceBureau;
-  }
-}
-
-function BandeauMiseAJour() {
-  const bureau = typeof window !== "undefined" ? window.fluxPublics : undefined;
-  const [statut, setStatut] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (bureau?.surMiseAJour) {
-      bureau.surMiseAJour((donnees) => setStatut(donnees.texte));
-    }
-  }, [bureau]);
-
-  if (!statut) return null;
-  return (
-    <p className="mb-3 rounded-md border border-blue-800 bg-blue-950/50 px-3 py-1.5 text-xs text-blue-200" role="status">
-      {statut}
-    </p>
-  );
-}

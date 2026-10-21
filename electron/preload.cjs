@@ -7,4 +7,7 @@ contextBridge.exposeInMainWorld("fluxPublics", {
   surMiseAJour: (callback) => {
     ipcRenderer.on("mise-a-jour", (_event, donnees) => callback(donnees));
   },
+  verifierVersion: () => ipcRenderer.invoke("verifier-version"),
+  verifierMajInstallateur: () => ipcRenderer.invoke("verifier-maj-installateur"),
+  installerMiseAJour: () => ipcRenderer.invoke("installer-mise-a-jour"),
 });
