@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fond: #0b1220;
+  --color-carte: #111a2e;
+  --color-bord: #1f2b45;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-fond text-slate-100 antialiased;
+}
+
+*:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
