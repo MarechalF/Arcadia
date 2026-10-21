@@ -10,19 +10,31 @@
     "electron/preload.cjs",
     "package.json"
   ],
+  "publish": {
+    "provider": "github",
+    "owner": "MarechalF",
+    "repo": "Arcadia"
+  },
   "win": {
-    "target": ["nsis"]
+    "target": ["nsis"],
+    "publish": ["github"]
   },
   "nsis": {
-    "oneClick": false,
-    "allowToChangeInstallationDirectory": true
+    "oneClick": true,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": false,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Flux Publics"
   },
   "linux": {
-    "target": ["AppImage", "deb"],
-    "category": "Education;Finance"
+    "target": ["AppImage"],
+    "category": "Education;Finance",
+    "publish": ["github"]
   },
   "mac": {
     "target": ["dmg"],
-    "category": "public.app-category.finance"
+    "category": "public.app-category.finance",
+    "publish": ["github"]
   }
 }

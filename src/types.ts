@@ -67,6 +67,26 @@ export interface BrancheData {
   depenses: PosteBranche[];
 }
 
+/** Aide ou subvention : flux de transfert vers un bénéficiaire final. */
+export interface AideSubvention {
+  id: string;
+  nom: string;
+  /** Bénéficiaire : ménages, entreprises, collectivités, associations… */
+  beneficiaire: "menages" | "entreprises" | "collectivites" | "associations" | "operateurs" | "autres";
+  /** Mission ou branche porteuse du financement. */
+  financeur: string;
+  /** Md€ par an — les aides sociales sont versées par la Sécu ou l'État selon le cas. */
+  montant: number;
+  detail: string;
+}
+
+/** Volet pédagogique : le fonctionnement d'un opérateur, étape par étape. */
+export interface CircuitOperateur {
+  etapes: string[];
+  fonds: string[];
+  role: string;
+}
+
 export interface OperateurPublic {
   id: string;
   nom: string;
@@ -75,6 +95,8 @@ export interface OperateurPublic {
   enjeu: string;
   montantIndicatif: number;
   avertissement: string;
+  /** Circuit détaillé : d'où vient l'argent, par où il passe, qui le reçoit. */
+  circuit?: CircuitOperateur;
 }
 
 export interface IndicateursMacro {
@@ -107,6 +129,8 @@ export interface Referentiel {
   securiteSociale: BrancheData;
   collectivites: BrancheData;
   operateurs: OperateurPublic[];
+  /** Aides et subventions vers les bénéficiaires finaux (ordres de grandeur Md€/an). */
+  aides: AideSubvention[];
   macro: IndicateursMacro;
 }
 

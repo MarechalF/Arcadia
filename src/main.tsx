@@ -13,6 +13,7 @@ import { ProjectionDette } from "@/pages/ProjectionDette";
 import { FluxSankeyPage } from "@/pages/FluxSankey";
 import { TitresBudgetaires } from "@/pages/TitresBudgetaires";
 import { Historique } from "@/pages/Historique";
+import { AidesSubventions } from "@/pages/AidesSubventions";
 import "@/index.css";
 
 function AppRoutes() {
@@ -33,6 +34,7 @@ function AppRoutes() {
           <Route path="flux" element={<FluxSankeyPage />} />
           <Route path="titres" element={<TitresBudgetaires />} />
           <Route path="historique" element={<Historique />} />
+          <Route path="aides" element={<AidesSubventions />} />
         </Route>
       </Routes>
     </HashRouter>
