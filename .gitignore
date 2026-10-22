@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 -e 
 release
+
+# Empreinte de version générée au build (jamais versionnée)
+src/version.ts
