@@ -22,3 +22,7 @@ export const DATE_BUILD = "${date}";
 `,
 );
 console.log(`version.ts généré (SHA: ${sha.slice(0, 8)}…)`);
+// Empreinte aussi écrite dans dist/version.txt (lue par le processus Electron packagé).
+mkdirSync(path.resolve("dist"), { recursive: true });
+writeFileSync(path.resolve("dist/version.txt"), `${sha}\n`);
+console.log("dist/version.txt généré");
