@@ -1,0 +1,202 @@
+[
+  {
+    "slug": "economie-verte-2025",
+    "title": "L'économie verte franchit un cap historique en 2025",
+    "category": "Économie",
+    "author": "Camille Moreau",
+    "date": "2025-10-20T09:00:00+02:00",
+    "excerpt": "Les investissements dans les énergies renouvelables dépassent pour la première fois ceux des énergies fossiles dans l'Union européenne.",
+    "tags": [
+      "énergie",
+      "climat",
+      "investissement"
+    ],
+    "image": "/img/energie.svg",
+    "content": [
+      "Les chiffres publiés cette semaine par l'Agence internationale de l'énergie confirment une tendance de fond : pour la première fois, les investissements européens dans les énergies renouvelables ont dépassé ceux consacrés aux énergies fossiles.",
+      "Cette inflexion s'explique par la baisse continue du coût du solaire photovoltaïque, la montée en puissance de l'éolien offshore et des cadres réglementaires de plus en plus favorables à la décarbonation de l'industrie.",
+      "Les économistes interrogés soulignent toutefois que la transition reste inégale selon les secteurs. L'agriculture et le transport lourd peinent à trouver des alternatives compétitives aux carburants fossiles.",
+      "\"Nous avons franchi un seuil symbolique, mais le chemin reste long\", estime l'économiste Hélène Fabre. Les plans de relance nationaux prévoient néanmoins d'accélérer encore les investissements d'ici 2030."
+    ]
+  },
+  {
+    "slug": "ia-et-education",
+    "title": "Intelligence artificielle : ce qui change vraiment dans les salles de classe",
+    "category": "Technologie",
+    "author": "Yanis Belkacem",
+    "date": "2025-10-18T14:30:00+02:00",
+    "excerpt": "Tuteurs personnalisés, correction automatique, plagiat détecté : le point sur les outils d'IA adoptés par les établissements scolaires.",
+    "tags": [
+      "IA",
+      "éducation",
+      "outils"
+    ],
+    "image": "/img/education.svg",
+    "content": [
+      "Depuis la rentrée, de plus en plus d'établissements expérimentent des assistants pédagogiques fondés sur l'intelligence artificielle. Leur promesse : adapter le rythme et les exercices au niveau de chaque élève.",
+      "Les enseignants restent prudents. Plusieurs d'entre eux saluent le temps gagné sur les corrections répétitives, tout en insistant sur le caractère irremplaçable de la relation humaine dans l'apprentissage.",
+      "La détection du plagiat assistée par IA fait également débat : efficace contre la copie, elle peut aussi produire de faux positifs sur des textes courts ou très classiques.",
+      "Le ministère de l'Éducation prépare un cadre éthique national pour encadrer ces usages, avec une règle simple : l'IA assiste l'enseignant, elle ne le remplace pas."
+    ]
+  },
+  {
+    "slug": "coupe-du-monde-feminine",
+    "title": "Football féminin : les Bleues en demi-finale, un stade plein à craquer",
+    "category": "Sport",
+    "author": "Sarah Lemoine",
+    "date": "2025-10-15T21:00:00+02:00",
+    "excerpt": "Victoire 2-1 après prolongation : l'équipe de France se qualifie pour les demi-finales devant 60 000 spectateurs.",
+    "tags": [
+      "football",
+      "équipe de France",
+      "féminin"
+    ],
+    "image": "/img/sport.svg",
+    "content": [
+      "Le stade était plein, l'ambiance électrique. Opposées à une équipe physique et bien organisée, les Bleues ont longtemps buté sur un bloc adverse solide avant de trouver la faille en fin de match.",
+      "C'est finalement sur un corner repris de la tête que le score a été débloqué, transformant une rencontre serrée en explosion de joie dans les tribunes.",
+      "L'entraîneuse a salué \"l'état d'esprit exceptionnel\" de ses joueuses, qui ont tenu physiquement jusqu'au bout malgré une fatigue visible dans les dernières minutes.",
+      "Prochaine étape : une demi-finale qui s'annonce historique, avec une affluence déjà annoncée comme un record pour le football féminin dans le pays."
+    ]
+  },
+  {
+    "slug": "climat-canicules",
+    "title": "Canicules : les villes accélèrent sur les îlots de fraîcheur",
+    "category": "Société",
+    "author": "Marc Delaunay",
+    "date": "2025-10-12T08:15:00+02:00",
+    "excerpt": "Face à des étés de plus en plus chauds, les grandes métropoles multiplient les forêts urbaines, les fontaines et les toits végétalisés.",
+    "tags": [
+      "climat",
+      "ville",
+      "adaptation"
+    ],
+    "image": "/img/ville.svg",
+    "content": [
+      "Avec des températures qui dépassent régulièrement les 40 degrés en été, les grandes villes françaises accélèrent la création d'îlots de fraîcheur : parcs, forêts urbaines, cours d'eau rouverts et toitures végétalisées.",
+      "Plusieurs métropoles ont adopté des plans climat ambitieux, avec des objectifs chiffrés de plantation d'arbres et de désimperméabilisation des sols d'ici 2030.",
+      "Les urbanistes rappellent qu'au-delà du confort, ces aménagements réduisent aussi la mortalité lors des épisodes caniculaires, qui touchent d'abord les personnes âgées et isolées.",
+      "Reste un défi de taille : financer ces transformations dans les quartiers les plus denses, où le foncier est rare et cher."
+    ]
+  },
+  {
+    "slug": "cinema-rentree",
+    "title": "Cinéma : la rentrée s'annonce record avec cinq grosses sorties en une semaine",
+    "category": "Culture",
+    "author": "Inès Roussel",
+    "date": "2025-10-10T11:45:00+02:00",
+    "excerpt": "Entre blockbusters et films d'auteur, les salles obscures misent sur une programmation dense pour attirer les spectateurs.",
+    "tags": [
+      "cinéma",
+      "sorties",
+      "box-office"
+    ],
+    "image": "/img/culture.svg",
+    "content": [
+      "Cinq films très attendus sortent la même semaine : un phénomène rare qui témoigne de la confiance retrouvée des distributeurs après deux années difficiles.",
+      "Parmi eux, un thriller d'espionnage, une comédie romantique portée par un duo inattendu, et le nouveau film d'un réalisateur récompensé à Cannes.",
+      "Les directeurs de salles se montrent optimistes : la fréquentation repart à la hausse, portée notamment par les jeunes publics et les abonnements illimités.",
+      "Les critiques soulignent la diversité de l'offre, qui permet à des films de taille moyenne de trouver leur public à côté des grosses machines."
+    ]
+  },
+  {
+    "slug": "sante-sommeil",
+    "title": "Sommeil : pourquoi les Français dorment de moins en moins bien",
+    "category": "Santé",
+    "author": "Dr Nadia Haddad",
+    "date": "2025-10-08T07:30:00+02:00",
+    "excerpt": "Écrans, stress, horaires décalés : une étude nationale révèle une dégradation continue de la qualité du sommeil.",
+    "tags": [
+      "sommeil",
+      "santé publique",
+      "écrans"
+    ],
+    "image": "/img/sante.svg",
+    "content": [
+      "La dernière enquête nationale sur le sommeil dresse un constat préoccupant : les Français dorment en moyenne 40 minutes de moins qu'il y a dix ans, et la qualité de leur sommeil s'est nettement dégradée.",
+      "Les spécialistes pointent trois facteurs principaux : l'usage tardif des écrans, l'augmentation du stress professionnel et des rythmes de vie de plus en plus irréguliers.",
+      "Le manque de sommeil chronique est associé à un risque accru de maladies cardiovasculaires, de diabète et de troubles de l'humeur.",
+      "Bonne nouvelle : des mesures simples font la différence, comme des horaires de coucher réguliers, une chambre fraîche et obscure, et une dernière heure sans écran avant de dormir."
+    ]
+  },
+  {
+    "slug": "espace-artemis",
+    "title": "Espace : la mission lunaire se prépare, l'Europe veut sa place",
+    "category": "Science",
+    "author": "Thomas Verlaine",
+    "date": "2025-10-05T16:20:00+02:00",
+    "excerpt": "Alors que la prochaine mission habitée vers la Lune se précise, les agences spatiales européennes accélèrent leurs programmes.",
+    "tags": [
+      "espace",
+      "Lune",
+      "Europe"
+    ],
+    "image": "/img/science.svg",
+    "content": [
+      "La prochaine décennie s'annonce décisive pour l'exploration lunaire. Après les premiers pas de la mission habitée américaine, plusieurs nations préparent leurs propres programmes, avec la Lune comme objectif partagé.",
+      "L'Agence spatiale européenne joue un rôle croissant : elle fournit des modules de service, développe des technologies d'atterrissage et participe aux négociations sur l'utilisation pacifique de l'espace.",
+      "Les scientifiques voient dans la Lune un laboratoire unique pour étudier le système solaire et préparer, à plus long terme, des missions vers Mars.",
+      "Le défi reste immense : durée de vie des équipements, protection contre les radiations, et financement sur le long terme."
+    ]
+  },
+  {
+    "slug": "politique-debat-budget",
+    "title": "Budget : le débat parlementaire s'ouvre dans un climat tendu",
+    "category": "Politique",
+    "author": "Claire Fontaine",
+    "date": "2025-10-02T10:00:00+02:00",
+    "excerpt": "Le projet de loi de finances arrive à l'Assemblée avec des désaccords marqués sur les priorités budgétaires.",
+    "tags": [
+      "budget",
+      "Assemblée",
+      "débat"
+    ],
+    "image": "/img/politique.svg",
+    "content": [
+      "Le projet de loi de finances de l'État pour l'année à venir est examiné cette semaine à l'Assemblée nationale. Au cœur des discussions : la répartition des efforts entre réduction du déficit et soutien au pouvoir d'achat.",
+      "La majorité défend un texte présenté comme équilibré, tandis que l'opposition dénonce des choix budgétaires qui pénaliseraient les services publics.",
+      "Plusieurs amendements ont déjà été déposés sur la santé, l'éducation et la transition écologique, trois postes qui concentrent l'essentiel des débats.",
+      "Le calendrier législatif est serré : le texte doit être adopté avant la fin de l'année pour entrer en vigueur au 1er janvier."
+    ]
+  },
+  {
+    "slug": "voyage-train-nuit",
+    "title": "Le train de nuit fait son grand retour en Europe",
+    "category": "Voyage",
+    "author": "Emma Girard",
+    "date": "2025-09-28T18:00:00+02:00",
+    "excerpt": "Paris, Berlin, Vienne, Rome : les lignes de nuit se multiplient et séduisent une nouvelle génération de voyageurs.",
+    "tags": [
+      "train",
+      "voyage",
+      "écologie"
+    ],
+    "image": "/img/voyage.svg",
+    "content": [
+      "Longtemps menacé de disparition, le train de nuit connaît un spectaculaire retour en Europe. De nouvelles lignes relient désormais les grandes capitales, de Paris à Berlin ou de Vienne à Rome.",
+      "Le succès s'explique par une combinaison de facteurs : tarifs compétitifs, confort des cabines couchette et argument écologique face à l'avion sur les distances moyennes.",
+      "Les opérateurs ferroviaires annoncent de nouvelles lignes pour l'année prochaine, tandis que des acteurs privés se lancent sur le créneau des trains de nuit premium.",
+      "Reste à confirmer la tendance : la ponctualité et la disponibilité des billets restent les deux points que les voyageurs surveillent de près."
+    ]
+  },
+  {
+    "slug": "alimentation-circuits-courts",
+    "title": "Alimentation : les circuits courts gagnent du terrain dans les cantines",
+    "category": "Société",
+    "author": "Marc Delaunay",
+    "date": "2025-09-25T12:10:00+02:00",
+    "excerpt": "De plus en plus de collectivités s'engagent à servir 50 % de produits locaux et de saison dans les restaurants scolaires.",
+    "tags": [
+      "alimentation",
+      "agriculture",
+      "cantines"
+    ],
+    "image": "/img/alimentation.svg",
+    "content": [
+      "Les cantines scolaires sont en pleine transformation. De nombreuses collectivités ont pris l'engagement de servir au moins la moitié de produits issus de circuits courts, souvent bio et de saison.",
+      "Cette évolution répond à une double attente : soutenir les agriculteurs locaux et offrir une alimentation de meilleure qualité aux élèves.",
+      "Les cuisines centrales adaptent leurs recettes et leurs approvisionnements, ce qui demande de la planification sur toute l'année pour gérer la saisonnalité des produits.",
+      "Les parents d'élèves sont globalement favorables, même si le coût des repas reste un sujet de vigilance pour certaines familles."
+    ]
+  }
+]

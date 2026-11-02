@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b2cbf"/><stop offset="1" stop-color="#c77dff"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <circle cx="650" cy="90" r="55" fill="#ffc8dd" opacity="0.9"/>
+  <circle cx="120" cy="360" r="90" fill="#ffc8dd" opacity="0.12"/>
+  <rect x="60" y="330" width="680" height="6" fill="#ffc8dd" opacity="0.5"/>
+  <text x="60" y="120" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ffffff" letter-spacing="6">CULTURE</text>
+</svg>
