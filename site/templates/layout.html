@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="alternate" type="application/rss+xml" title="{{site.name}}" href="/rss.xml">
+{{head}}
+<script src="/assets/live-reload.js" defer></script>
+</head>
+<body>
+{{include "partials/header"}}
+<main class="container">
+{{body}}
+</main>
+{{include "partials/footer"}}
+</body>
+</html>
