@@ -1,9 +1,0 @@
-{
-  "name": "La Gazette du Quotidien",
-  "description": "L'actualité claire, vérifiée et indépendante — propulsé par Arcadia.",
-  "url": "https://exemple.fr",
-  "perPage": 6,
-  "contentDir": "site/content",
-  "templatesDir": "site/templates",
-  "assetsDir": "site/assets"
-}
