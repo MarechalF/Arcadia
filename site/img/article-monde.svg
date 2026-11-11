@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#1a1a1a"/>
+  <circle cx="400" cy="225" r="110" fill="none" stroke="#4a7bb5" stroke-width="3"/>
+  <ellipse cx="400" cy="225" rx="110" ry="45" fill="none" stroke="#4a7bb5" stroke-width="1.5"/>
+  <line x1="290" y1="225" x2="510" y2="225" stroke="#4a7bb5" stroke-width="1.5"/>
+  <text x="400" y="400" font-family="Georgia, serif" font-size="40" fill="#ffffff" text-anchor="middle" font-style="italic">Monde</text>
+</svg>

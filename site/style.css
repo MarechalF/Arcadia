@@ -1,0 +1,622 @@
+/* ============================================================================
+   L'AVENIR — style.css (TOUT le CSS du site ; index.html n'en contient aucun)
+   Journal papier moderne façon NYT : crème / bleu nuit #0a1f44 / noir #1a1a1a /
+   gris #666 / fins traits #ddd. Accent unique = bleu nuit.
+   Thèmes clair/sombre via html[data-theme] + variables CSS. @media print en bas.
+   ============================================================================ */
+
+:root {
+  --bleu-nuit: #0a1f44;
+  --noir: #1a1a1a;
+  --gris: #666666;
+  --trait: #dddddd;
+  --creme: #fdfcf8;
+  --blanc: #ffffff;
+  /* variables de thème : seul le fond/texte/accent changent en mode sombre */
+  --fond: var(--creme);
+  --texte: var(--noir);
+  --texte-doux: #333333;
+  --accent: var(--bleu-nuit);
+}
+
+html[data-theme="sombre"] {
+  --fond: #14161c;
+  --texte: #e8e6e1;
+  --texte-doux: #c9c6bf;
+  --trait: #3a3f4a;
+  --gris: #9aa0ab;
+  --accent: #8fb0e0; /* bleu nuit éclairci pour rester lisible sur fond sombre */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  /* titres en serif Georgia : signature de la presse écrite */
+}
+
+a { color: var(--accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--bleu-nuit);
+  color: var(--blanc);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* ---------- Bandeau noir + toggle thème ---------- */
+.bandeau {
+  background: var(--noir);
+  color: var(--blanc);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+}
+#theme-toggle {
+  font: inherit;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--blanc);
+  border-radius: 3px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+#theme-toggle:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* ---------- Header ---------- */
+header {
+  background: var(--bleu-nuit);
+  color: var(--blanc);
+  text-align: center;
+  padding: 2rem 1rem 1.6rem;
+  border-bottom: 1px solid var(--trait);
+}
+header h1 {
+  margin: 0;
+  font-size: 3rem;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+}
+header h1 a { color: inherit; text-decoration: none; }
+
+/* ---------- Layout Flexbox ---------- */
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  background: var(--bleu-nuit);
+  border-right: 1px solid var(--trait);
+}
+.sidebar ul { list-style: none; margin: 0; padding: 0; }
+.sidebar li { border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
+.sidebar a {
+  display: block;
+  padding: 0.85rem 1.2rem;
+  color: var(--blanc);
+  text-decoration: none;
+}
+.sidebar a:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* ---------- Contenu ---------- */
+main { flex: 1; min-width: 0; padding: 0 2rem 3rem; }
+section { margin-top: 2.5rem; }
+section > h2 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--trait);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+/* ---------- 1. LA UNE ---------- */
+#une figure { margin: 0 0 1rem; }
+#une img { width: 100%; height: auto; display: block; }
+#une h2 { font-size: 2.4rem; line-height: 1.15; margin: 0.5rem 0 0.8rem; }
+#une h2 a { color: inherit; text-decoration: none; }
+#une .chapo { font-size: 1.15rem; line-height: 1.5; color: var(--texte-doux); }
+.meta {
+  color: var(--gris);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.categorie {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ---------- 2. L'ÉTAT DU MONDE (section sombre) ---------- */
+#etat-du-monde {
+  background: var(--bleu-nuit);
+  color: var(--blanc);
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding: 1.5rem 2rem 2rem;
+}
+#etat-du-monde > h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+  color: var(--blanc);
+}
+#etat-du-monde :focus-visible { outline-color: var(--blanc); }
+.maj-globale {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+/* compteurs du monde : dénombrement par statut, en serif */
+.compteurs {
+  font-family: Georgia, serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--blanc);
+  margin: 0.3rem 0 0.8rem;
+}
+
+/* Ticker */
+.ticker {
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 1.2rem;
+  white-space: nowrap;
+}
+.ticker ul {
+  display: inline-flex;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  animation: defilement 45s linear infinite;
+}
+.ticker:hover ul { animation-play-state: paused; }
+.ticker li { font-size: 0.85rem; }
+.ticker button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--blanc);
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+}
+.ticker button:hover { text-decoration: underline; }
+.ticker time { color: rgba(255, 255, 255, 0.6); margin-right: 0.4rem; }
+.src { color: rgba(255, 255, 255, 0.55); font-size: 0.78rem; }
+@keyframes defilement { to { transform: translateX(-50%); } }
+
+/* Légende + définitions */
+#legende-fieldset {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 0 0 1rem;
+  padding: 0.6rem 0 0;
+}
+#legende-fieldset legend {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0 0.4rem;
+}
+#legende {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  padding: 0;
+  margin: 0;
+}
+#legende label {
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+#legende input { accent-color: var(--blanc); }
+.pastille {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border-radius: 2px;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+.definitions {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.definitions summary {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.definitions p { margin: 0.3rem 0; max-width: 70ch; }
+.seuils { font-style: italic; color: rgba(255, 255, 255, 0.6); }
+.non-traite {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0.5rem 0 0;
+}
+
+/* Globe + infobulle + panneau */
+.carte-layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.globe-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+#globe {
+  height: 520px;
+  background: #000000;
+}
+#infobulle {
+  position: absolute;
+  pointer-events: none; /* la bulle ne bloque pas la souris */
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--blanc);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  z-index: 5;
+}
+#panneau-info {
+  width: 320px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  padding-left: 1.5rem;
+  min-height: 240px;
+  font-size: 0.9rem;
+}
+#panneau-info h3 { margin: 0 0 0.5rem; font-size: 1.4rem; }
+#panneau-info h4 {
+  font-size: 0.95rem;
+  margin: 0.8rem 0 0.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 0.2rem;
+}
+.badge-statut {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+.depuis {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  margin-left: 0.4rem;
+}
+.fiche p { margin: 0.4rem 0; }
+.fiche .source, .fiche .maj { color: rgba(255, 255, 255, 0.6); font-size: 0.78rem; }
+.fiche .resume { font-style: italic; }
+.avertissement { color: #ffffff; font-weight: bold; text-decoration: underline; } /* maj > 30 jours : alerte en blanc, aucune couleur de statut en dur */
+.evenements-liste {
+  list-style: none;
+  margin: 0.3rem 0;
+  padding: 0;
+  font-size: 0.82rem;
+}
+.evenements-liste li {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.3rem 0;
+}
+/* tableau des faits chiffrés dans la fiche */
+table.faits {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+}
+table.faits th, table.faits td {
+  text-align: left;
+  padding: 0.3rem 0.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+table.faits thead th {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.6);
+  border-top: none;
+}
+#copier-lien {
+  font: inherit;
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--blanc);
+  border-radius: 3px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+#copier-lien:hover { background: rgba(255, 255, 255, 0.12); }
+
+/* Timeline */
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 1rem;
+}
+.timeline input[type="range"] {
+  flex: 1;
+  min-width: 160px;
+  accent-color: var(--blanc);
+}
+#lecture {
+  font: inherit;
+  font-size: 0.8rem;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--blanc);
+  border-radius: 3px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+#lecture:hover { background: rgba(255, 255, 255, 0.12); }
+.date-curseur { font-family: Georgia, serif; font-style: italic; font-size: 1rem; }
+.periode { color: rgba(255, 255, 255, 0.6); font-size: 0.75rem; }
+
+/* Outils (recherche) */
+.outils-pays {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+.outils-pays input[type="search"] {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+  color: var(--blanc);
+  border-radius: 3px;
+  min-width: 220px;
+}
+.outils-pays input::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+/* Tableau des pays */
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 0.8rem;
+}
+#tableau-pays {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+#tableau-pays th, #tableau-pays td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  vertical-align: top;
+}
+#tableau-pays thead th {
+  border-top: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+#tableau-pays thead button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+}
+#tableau-pays thead button:hover { color: var(--blanc); text-decoration: underline; }
+/* une ligne sur deux grise (lisibilité) */
+#tableau-pays tbody tr:nth-child(even) { background: rgba(255, 255, 255, 0.06); }
+#tableau-pays tbody tr { cursor: pointer; }
+#tableau-pays tbody tr:hover { background: rgba(255, 255, 255, 0.12); }
+#tableau-pays td:first-child { font-weight: bold; }
+
+#globe-secours {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--blanc);
+  padding: 1rem;
+}
+[hidden] { display: none; }
+
+/* ---------- 3. FIL D'ARTICLES ---------- */
+.onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 0.5rem 0 1.2rem;
+}
+.onglets button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0 0 3px;
+  font: inherit;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gris);
+  cursor: pointer;
+}
+.onglets button.actif {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: bold;
+}
+.grille-articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.grille-articles article {
+  border-top: 1px solid var(--trait);
+  padding-top: 0.8rem;
+}
+.grille-articles img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+.grille-articles h3 { margin: 0.3rem 0; font-size: 1.15rem; line-height: 1.3; }
+.grille-articles h3 a { color: inherit; text-decoration: none; }
+.grille-articles h3 a:hover { text-decoration: underline; }
+.grille-articles .chapo { font-size: 0.9rem; color: var(--texte-doux); line-height: 1.5; }
+
+/* ---------- 4. NEWSLETTER ---------- */
+#newsletter {
+  border-top: 1px solid var(--trait);
+  text-align: center;
+  padding-top: 2rem;
+}
+#newsletter h2 { border: none; }
+#newsletter form {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+#newsletter input[type="email"] {
+  font: inherit;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--trait);
+  border-radius: 3px;
+  width: min(320px, 60vw);
+  background: var(--fond);
+  color: var(--texte);
+}
+#newsletter button {
+  font: inherit;
+  background: var(--bleu-nuit);
+  color: var(--blanc);
+  border: none;
+  border-radius: 3px;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+}
+#newsletter button:hover { background: #143061; }
+
+/* ---------- Page article ---------- */
+.page-article {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  line-height: 1.7;
+}
+.page-article h1 { font-size: 2.2rem; line-height: 1.2; }
+.page-article .chapo { font-size: 1.15rem; color: var(--texte-doux); }
+.page-article figure { margin: 1.5rem 0; }
+.page-article img { width: 100%; height: auto; }
+.page-article p { margin: 1rem 0; }
+.page-article .retour {
+  border-top: 1px solid var(--trait);
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+/* ---------- Mobile : 600px max ---------- */
+@media (max-width: 600px) {
+  .layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--trait);
+  }
+  .sidebar ul { display: flex; flex-wrap: wrap; }
+  .sidebar li { border-bottom: none; border-right: 1px solid rgba(255, 255, 255, 0.18); }
+  main { padding: 0 1rem 2rem; }
+  #etat-du-monde {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 1rem 1rem 1.5rem;
+  }
+  .grille-articles { grid-template-columns: 1fr; }
+  .carte-layout { flex-direction: column; }
+  #panneau-info {
+    width: auto;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 1rem 0 0;
+  }
+  #globe { height: 380px; }
+  header h1 { font-size: 2rem; letter-spacing: 6px; }
+  #tableau-pays { font-size: 0.78rem; }
+}
+
+/* ---------- Impression ---------- */
+@media print {
+  .sidebar, .globe-wrap, .ticker, #legende-fieldset, .timeline, .outils-pays,
+  #newsletter form, #theme-toggle, .skip-link, #copier-lien, #infobulle {
+    display: none;
+  }
+  body { background: #fff; color: #000; }
+  #etat-du-monde { background: #fff; color: #000; margin: 0; padding: 0; }
+  #etat-du-monde > h2, #panneau-info, .compteurs { color: #000; }
+  #tableau-pays th, #tableau-pays td { border-color: #999; color: #000; }
+  #tableau-pays thead button { color: #000; }
+  #tableau-pays tbody tr:nth-child(even) { background: #f0f0f0; }
+  a { color: #000; text-decoration: underline; }
+  .grille-articles { grid-template-columns: 1fr; }
+}

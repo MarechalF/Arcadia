@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0a1f44"/>
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="600" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="96" fill="#ffffff" text-anchor="middle" letter-spacing="10">L'AVENIR</text>
+  <text x="600" y="380" font-family="Georgia, serif" font-size="30" fill="#ffffff" fill-opacity="0.75" text-anchor="middle" font-style="italic">L'état du monde, chaque jour</text>
+  <line x1="420" y1="430" x2="780" y2="430" stroke="#ffffff" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="600" y="475" font-family="Helvetica, Arial, sans-serif" font-size="20" fill="#ffffff" fill-opacity="0.6" text-anchor="middle" letter-spacing="4">À LA UNE — 2 NOVEMBRE 2026</text>
+</svg>

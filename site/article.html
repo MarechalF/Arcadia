@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Page article de « L'Avenir » : structure seule, comme index.html -->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="L'Avenir — article du journal.">
+  <title>Article — L'Avenir</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+
+  <div class="bandeau">
+    <span id="bandeau-edition"></span>
+    <button id="theme-toggle" type="button">Mode sombre</button>
+  </div>
+
+  <header>
+    <h1><a href="index.html">L'Avenir</a></h1>
+    <!-- le nom du journal renvoie à l'accueil -->
+  </header>
+
+  <main class="page-article" id="contenu">
+    <!-- <article> rempli par js/article.js depuis data/articles.js, selon ?id=… dans l'URL -->
+    <article id="article"></article>
+
+    <p class="retour"><a href="index.html">← Retour à l'accueil</a></p>
+
+    <section id="lies" aria-label="Articles liés">
+      <h2>Articles liés</h2>
+      <div class="grille-articles" id="grille-lies"></div>
+    </section>
+  </main>
+
+  <script src="data/articles.js"></script>
+  <script src="js/commun.js"></script>
+  <script src="js/article.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- DOCTYPE : déclare au navigateur que le document est en HTML5 -->
+<html lang="fr">
+<!-- <html> racine de la page ; lang="fr" pour les lecteurs d'écran et le référencement -->
+<head>
+  <!-- <head> : métadonnées (invisibles). AUCUN style ni script inline : tout est dans style.css et js/ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="L'Avenir — journal en ligne : l'actualité et l'état du monde en carte interactive.">
+  <!-- Meta Open Graph : aperçu du lien au partage (réseaux sociaux, messageries) -->
+  <meta property="og:title" content="L'Avenir — Journal en ligne">
+  <meta property="og:description" content="L'actualité et l'état du monde en carte interactive.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/une.svg">
+  <title>L'Avenir — Journal en ligne</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu principal</a>
+  <!-- lien d'évitement : saute le menu (clavier / lecteur d'écran) -->
+
+  <div class="bandeau">
+    <span id="bandeau-edition"></span>
+    <!-- « Édition du … » injecté par js/commun.js -->
+    <button id="theme-toggle" type="button">Mode sombre</button>
+  </div>
+
+  <header>
+    <h1>L'Avenir</h1>
+    <!-- <h1> : nom du journal, titre principal unique -->
+  </header>
+
+  <div class="layout">
+    <nav class="sidebar" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#une">Accueil</a></li>
+        <li><a href="#etat-du-monde">L'état du monde</a></li>
+        <li><a href="#fil-articles">Articles</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+      </ul>
+    </nav>
+
+    <main id="contenu">
+      <!-- 1. LA UNE : remplie par js/articles.js depuis data/articles.js ("une": true) -->
+      <section id="une" aria-label="À la une"></section>
+
+      <!-- 2. L'ÉTAT DU MONDE : section sombre immersive, remplie par js/carte.js -->
+      <section id="etat-du-monde" aria-label="L'état du monde">
+        <h2>L'état du monde</h2>
+        <p id="maj-globale" class="maj-globale" hidden></p>
+        <!-- compteurs du monde (dénombrement par statut, calculé depuis les données) -->
+        <p id="compteurs" class="compteurs" aria-live="polite"></p>
+
+        <div class="ticker" aria-label="Derniers événements">
+          <!-- ticker défilant : plus récents d'abord, source affichée, clic = globe + fiche -->
+          <ul id="ticker"></ul>
+        </div>
+
+        <fieldset id="legende-fieldset">
+          <legend>Statuts affichés</legend>
+          <!-- filtres à cocher, générés depuis la "legende" de data/monde.json (rien en dur) -->
+          <ul id="legende"></ul>
+          <!-- le « i » : définitions publiques des statuts (critères UCDP), générées depuis le JSON -->
+          <details class="definitions" id="definitions-statuts">
+            <summary>Définitions des statuts (critères publics, seuils UCDP)</summary>
+            <div id="definitions-contenu"></div>
+          </details>
+          <p class="non-traite">Gris : pays non encore traité par la rédaction (« pas de données » ≠ « paix »).</p>
+        </fieldset>
+
+        <div class="carte-layout">
+          <div class="globe-wrap">
+            <div id="globe" role="img" aria-label="Globe 3D interactif : chaque pays est coloré selon son statut (paix, tensions, conflit actif, guerre). Utilisez le tableau des pays ci-dessous pour explorer les données en texte."></div>
+            <!-- infobulle au survol : « Pays — Statut depuis [date] » -->
+            <div id="infobulle" hidden></div>
+          </div>
+          <aside id="panneau-info" aria-live="polite">
+            <p>Cliquez sur un pays du globe, sur un événement du ticker ou sur une ligne du tableau pour afficher sa fiche : statut et depuis quand, nature, acteurs, faits chiffrés sourcés, événements, résumé, sources et date de mise à jour.</p>
+          </aside>
+        </div>
+
+        <div class="timeline">
+          <!-- curseur temporel : rejoue l'histoire des statuts (historique de monde.json) -->
+          <button id="lecture" type="button">Lecture</button>
+          <input type="range" id="curseur" min="0" max="0" step="1" value="0" aria-label="Curseur temporel">
+          <span id="date-curseur" class="date-curseur"></span>
+          <span class="periode"><span id="periode-min"></span> → <span id="periode-max"></span></span>
+          <details class="definitions">
+            <summary>Que montre cette timeline ?</summary>
+            <p>À chaque position du curseur, chaque pays reprend le statut de son historique le plus proche de cette date. Les compteurs et le tableau se recalculent : on voit le monde changer dans le temps.</p>
+          </details>
+        </div>
+
+        <div class="outils-pays">
+          <!-- recherche par nom au-dessus du tableau (le tri se fait en cliquant les en-têtes) -->
+          <label class="visually-hidden" for="recherche-pays">Rechercher un pays</label>
+          <input type="search" id="recherche-pays" placeholder="Rechercher un pays…">
+        </div>
+
+        <div class="table-wrap">
+          <table id="tableau-pays">
+            <caption class="visually-hidden">Tableau des pays : statut, nature, depuis quand, mise à jour. Cliquez sur une ligne pour voir la fiche et centrer le globe.</caption>
+            <thead>
+              <tr>
+                <th scope="col"><button type="button" data-tri="nom">Pays</button></th>
+                <th scope="col"><button type="button" data-tri="statut">Statut</button></th>
+                <th scope="col">Nature</th>
+                <th scope="col"><button type="button" data-tri="depuis">Depuis</button></th>
+                <th scope="col"><button type="button" data-tri="maj">Mise à jour</button></th>
+              </tr>
+            </thead>
+            <tbody id="corps-tableau"></tbody>
+          </table>
+        </div>
+
+        <p id="globe-secours" hidden>
+          La carte 3D n'a pas pu être chargée (bibliothèque Globe.gl indisponible).
+          Le ticker, les compteurs et le tableau des pays ci-dessus restent consultables.
+          Astuce : si la page est ouverte directement en file://, lancez un serveur local
+          (<code>python -m http.server 8000</code>) puis <code>http://localhost:8000</code>.
+        </p>
+      </section>
+
+      <!-- 3. FIL D'ARTICLES : onglets + grille, remplis par js/articles.js -->
+      <section id="fil-articles" aria-label="Fil d'articles">
+        <h2>Fil d'articles</h2>
+        <div class="onglets" id="onglets" role="tablist" aria-label="Filtrer par catégorie"></div>
+        <div class="grille-articles" id="grille-articles"></div>
+      </section>
+
+      <!-- 4. NEWSLETTER : visuel uniquement pour l'instant -->
+      <section id="newsletter" aria-label="Newsletter">
+        <h2>L'état du monde, chaque lundi</h2>
+        <p>Recevez notre carte du monde et nos analyses chaque lundi matin.</p>
+        <form id="form-newsletter" action="#" method="get">
+          <label for="email" class="visually-hidden">Votre adresse email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.fr" required>
+          <button type="submit">S'abonner</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="data/articles.js"></script>
+  <script src="js/commun.js"></script>
+  <script src="js/articles.js"></script>
+  <!-- Globe.gl par CDN pour le globe 3D -->
+  <script src="https://cdn.jsdelivr.net/npm/globe.gl@2/dist/globe.gl.min.js"></script>
+  <script src="js/carte.js"></script>
+
+</body>
+</html>
