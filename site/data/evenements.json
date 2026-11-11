@@ -1,0 +1,9 @@
+[
+  { "id": "2026-11-01-geneve",      "date": "2026-11-01", "pays": "UKR", "description": "Négociations reprises à Genève sous médiation de l'ONU", "source": "Reuters" },
+  { "id": "2026-10-30-nairobi",     "date": "2026-10-30", "pays": "SDN", "description": "Cessez-le-feu négocié à Nairobi, corridor humanitaire annoncé", "source": "AFP" },
+  { "id": "2026-10-28-geneve-climat", "date": "2026-10-28", "pays": "FRA", "description": "Accord climatique historique signé, 120 délégations", "source": "ONU" },
+  { "id": "2026-10-25-mexico",      "date": "2026-10-25", "pays": "MEX", "description": "Opération conjointe contre les cartels dans trois États fédérés", "source": "ACLED" },
+  { "id": "2026-10-22-washington",  "date": "2026-10-22", "pays": "USA", "description": "La banque centrale abaisse ses taux directeurs de 0,25 point", "source": "Reuters" },
+  { "id": "2026-10-20-aden",        "date": "2026-10-20", "pays": "YEM", "description": "Corridor humanitaire rouvert au port d'Aden", "source": "OCHA" },
+  { "id": "2026-10-18-khartoum",    "date": "2026-10-18", "pays": "SDN", "description": "Combats signalés dans la capitale malgré le cessez-le-feu annoncé", "source": "ACLED" }
+]

@@ -1,0 +1,330 @@
+{
+  "titre": "L'état du monde — L'Avenir",
+  "majGlobale": "2026-11-02",
+  "description": "On ne note pas le monde : on constate, qualifie et source. Chaque pays = un fait qualitatif (statut, nature, acteurs) + des faits chiffrés sourcés + un texte rédigé. Aucun score, aucune note. historique = liste des CHANGEMENTS de statut (avec motif). maj obligatoire ; un pays sans sources ou sans maj déclenche un avertissement console au chargement.",
+  "seuils": "Seuils inspirés de l'UCDP (université d'Uppsala) : conflit armé = 25+ décès liés au combat par an entre acteurs organisés ; guerre = 1000+ décès liés au combat par an.",
+  "legende": {
+    "paix":    { "couleur": "#4a7bb5", "libelle": "Paix",         "critere": "Aucun conflit armé actif sur le territoire" },
+    "tension": { "couleur": "#e6b84c", "libelle": "Tensions",      "critere": "Instabilité grave (crise politique, violences sporadiques, conflit latent) sans atteindre le seuil de conflit armé (25 décès/an, UCDP)" },
+    "conflit": { "couleur": "#d96c2f", "libelle": "Conflit actif", "critere": "25+ décès liés au combat par an entre acteurs organisés (seuil UCDP du conflit armé)" },
+    "guerre":  { "couleur": "#b8212f", "libelle": "Guerre",        "critere": "1000+ décès liés au combat par an (seuil UCDP de la guerre)" }
+  },
+  "pays": {
+    "FRA": {
+      "nom": "France", "statut": "paix", "statutDepuis": "2020-01-01",
+      "nature": "Aucun conflit armé actif sur le territoire", "acteurs": "—",
+      "faits": [
+        { "libelle": "Taux de chômage", "valeur": "7,1 %", "source": "INSEE", "dateFait": "2026-09" },
+        { "libelle": "Personnes déplacées internes", "valeur": "0", "source": "HCR", "dateFait": "2026-06" }
+      ],
+      "resume": "Situation stable : aucun conflit armé actif sur le territoire selon l'UCDP.",
+      "sources": ["INSEE", "HCR", "UCDP"],
+      "evenementsLies": ["2026-10-28-geneve-climat"],
+      "historique": [ { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" } ],
+      "maj": "2026-10-28"
+    },
+    "DEU": {
+      "nom": "Allemagne", "statut": "paix", "statutDepuis": "2020-01-01",
+      "nature": "Aucun conflit armé actif sur le territoire", "acteurs": "—",
+      "faits": [
+        { "libelle": "Croissance du PIB (T2 2026)", "valeur": "0,2 %", "source": "Destatis", "dateFait": "2026-09" },
+        { "libelle": "Réfugiés accueillis", "valeur": "1,2 million", "source": "HCR", "dateFait": "2026-06" }
+      ],
+      "resume": "Situation stable, aucun conflit armé actif (UCDP).",
+      "sources": ["Destatis", "HCR", "UCDP"],
+      "evenementsLies": [],
+      "historique": [ { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" } ],
+      "maj": "2026-10-27"
+    },
+    "USA": {
+      "nom": "États-Unis", "statut": "tension", "statutDepuis": "2025-01-20",
+      "nature": "Crise politique majeure, violences sporadiques",
+      "acteurs": "Administration fédérale contre États fédérés, mouvements protestataires, milices",
+      "faits": [
+        { "libelle": "Violences politiques enregistrées en 2025", "valeur": "1 240", "source": "ACLED", "dateFait": "2026-10" },
+        { "libelle": "Arrestations liées à des manifestations (2025)", "valeur": "8 900", "source": "ACLED", "dateFait": "2026-10" }
+      ],
+      "resume": "Crise politique persistante depuis janvier 2025 ; violences sporadiques sous le seuil UCDP du conflit armé.",
+      "sources": ["ACLED", "UCDP", "FBI"],
+      "evenementsLies": ["2026-10-22-washington"],
+      "historique": [
+        { "date": "2025-01-20", "statut": "tension", "motif": "Crise politique et violences sporadiques — sources : ACLED, FBI" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-11-01"
+    },
+    "UKR": {
+      "nom": "Ukraine", "statut": "guerre", "statutDepuis": "2022-02-24",
+      "nature": "Guerre internationale",
+      "acteurs": "Forces armées ukrainiennes contre l'armée russe",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "6,9 millions", "source": "HCR", "dateFait": "2026-06" },
+        { "libelle": "Principaux théâtres", "valeur": "Est et Sud du pays", "source": "ACLED", "dateFait": "2026-10" }
+      ],
+      "resume": "Conflit ouvert depuis l'invasion du 24 février 2022 ; guerre au sens UCDP (1000+ décès/an).",
+      "sources": ["ONU", "ACLED", "HCR"],
+      "evenementsLies": ["2026-11-01-geneve"],
+      "historique": [
+        { "date": "2022-02-24", "statut": "guerre", "motif": "Invasion à grande échelle — source : ONU" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-11-01"
+    },
+    "JPN": {
+      "nom": "Japon", "statut": "paix", "statutDepuis": "2020-01-01",
+      "nature": "Aucun conflit armé actif sur le territoire", "acteurs": "—",
+      "faits": [
+        { "libelle": "Taux de chômage", "valeur": "2,5 %", "source": "Statistics Bureau", "dateFait": "2026-09" }
+      ],
+      "resume": "Situation stable, aucun conflit armé actif (UCDP).",
+      "sources": ["Statistics Bureau", "UCDP"],
+      "evenementsLies": [],
+      "historique": [ { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" } ],
+      "maj": "2026-10-20"
+    },
+    "CAN": {
+      "nom": "Canada", "statut": "paix", "statutDepuis": "2020-01-01",
+      "nature": "Aucun conflit armé actif sur le territoire", "acteurs": "—",
+      "faits": [
+        { "libelle": "Personnes déplacées internes", "valeur": "0", "source": "HCR", "dateFait": "2026-06" }
+      ],
+      "resume": "Situation stable, aucun conflit armé actif (UCDP).",
+      "sources": ["HCR", "UCDP"],
+      "evenementsLies": [],
+      "historique": [ { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" } ],
+      "maj": "2026-08-20"
+    },
+    "BRA": {
+      "nom": "Brésil", "statut": "tension", "statutDepuis": "2023-01-01",
+      "nature": "Violences urbaines et crise politique",
+      "acteurs": "État fédéral contre cartels, mouvements sociaux",
+      "faits": [
+        { "libelle": "Homicides en 2025", "valeur": "38 000", "source": "Forum brésilien de sécurité publique", "dateFait": "2026-01" }
+      ],
+      "resume": "Violences criminelles élevées et tensions politiques ; pas de conflit armé organisé au sens UCDP.",
+      "sources": ["Forum brésilien de sécurité publique", "ACLED", "UCDP"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2023-01-01", "statut": "tension", "motif": "Crise politique et violences urbaines — sources : ACLED, TSE" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-10-30"
+    },
+    "IND": {
+      "nom": "Inde", "statut": "tension", "statutDepuis": "2024-05-01",
+      "nature": "Tensions communautaires et frontalières",
+      "acteurs": "État indien contre groupes séparatistes au Cachemire ; tensions frontalières avec la Chine",
+      "faits": [
+        { "libelle": "Incidents violents en 2025", "valeur": "1 150", "source": "ACLED", "dateFait": "2026-09" }
+      ],
+      "resume": "Tensions communautaires et frontalières persistantes, sous le seuil UCDP du conflit armé.",
+      "sources": ["ACLED", "UCDP"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2024-05-01", "statut": "tension", "motif": "Recrudescence des tensions communautaires — source : ACLED" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-11-01"
+    },
+    "MEX": {
+      "nom": "Mexique", "statut": "conflit", "statutDepuis": "2024-06-01",
+      "nature": "Guerre des cartels contre l'État",
+      "acteurs": "Cartels (CJNG, Sinaloa) contre forces fédérales et population civile",
+      "faits": [
+        { "libelle": "Homicides en 2025", "valeur": "30 400", "source": "INEGI", "dateFait": "2026-01" },
+        { "libelle": "Personnes disparues (cumul)", "valeur": "112 000", "source": "Commission nationale de recherche (CNB)", "dateFait": "2026-06" }
+      ],
+      "resume": "Conflit armé au sens UCDP : cartels contre État, 25+ décès liés au combat par an depuis 2024.",
+      "sources": ["INEGI", "CNB", "ACLED", "ONU (OCHA)"],
+      "evenementsLies": ["2026-10-25-mexico"],
+      "historique": [
+        { "date": "2024-06-01", "statut": "conflit", "motif": "Escalade des cartels, seuil UCDP franchi — sources : ACLED, ONU" },
+        { "date": "2020-01-01", "statut": "tension", "motif": "Violence criminelle élevée mais sous le seuil — source : UCDP" }
+      ],
+      "maj": "2026-11-02"
+    },
+    "TUR": {
+      "nom": "Turquie", "statut": "tension", "statutDepuis": "2023-01-01",
+      "nature": "Crise politique et sécuritaire",
+      "acteurs": "Gouvernement contre opposition politique et PKK",
+      "faits": [
+        { "libelle": "Incidents sécuritaires en 2025", "valeur": "890", "source": "ACLED", "dateFait": "2026-09" }
+      ],
+      "resume": "Crise politique et opérations contre le PKK ; sous le seuil UCDP du conflit armé.",
+      "sources": ["ACLED", "UCDP", "Crisis Group"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2023-01-01", "statut": "tension", "motif": "Crise politique et sécuritaire — sources : ACLED, Crisis Group" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-10-29"
+    },
+    "ZAF": {
+      "nom": "Afrique du Sud", "statut": "tension", "statutDepuis": "2023-01-01",
+      "nature": "Violence criminelle organisée, instabilité politique",
+      "acteurs": "État contre réseaux criminels organisés",
+      "faits": [
+        { "libelle": "Homicides en 2025", "valeur": "27 500", "source": "SAPS (police sud-africaine)", "dateFait": "2026-01" }
+      ],
+      "resume": "Criminalité très élevée et tensions politiques ; pas de conflit armé organisé au sens UCDP.",
+      "sources": ["SAPS", "ACLED", "UCDP"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2023-01-01", "statut": "tension", "motif": "Instabilité politique et criminalité — source : ACLED" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-10-26"
+    },
+    "RUS": {
+      "nom": "Russie", "statut": "guerre", "statutDepuis": "2022-02-24",
+      "nature": "Guerre internationale (invasion de l'Ukraine)",
+      "acteurs": "Armée russe contre l'Ukraine, avec soutiens internationaux à Kiev",
+      "faits": [
+        { "libelle": "Réfugiés ukrainiens en Europe", "valeur": "5,9 millions", "source": "HCR", "dateFait": "2026-06" },
+        { "libelle": "Sanctions internationales en vigueur", "valeur": "16 000+", "source": "Union européenne", "dateFait": "2026-10" }
+      ],
+      "resume": "Guerre au sens UCDP depuis le 24 février 2022 (1000+ décès liés au combat par an).",
+      "sources": ["ONU", "ACLED", "HCR", "UE"],
+      "evenementsLies": ["2026-11-01-geneve"],
+      "historique": [
+        { "date": "2022-02-24", "statut": "guerre", "motif": "Invasion de l'Ukraine — source : ONU" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif sur le territoire — source : UCDP" }
+      ],
+      "maj": "2026-11-02"
+    },
+    "SDN": {
+      "nom": "Soudan", "statut": "guerre", "statutDepuis": "2025-01-15",
+      "nature": "Guerre civile",
+      "acteurs": "Armée soudanaise (SAF) contre Forces de soutien rapide (RSF)",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "11 millions", "source": "OCHA", "dateFait": "2026-10" },
+        { "libelle": "Décès estimés (estimation basse ONU)", "valeur": "150 000+", "source": "ONU", "dateFait": "2026-08" }
+      ],
+      "resume": "Guerre civile depuis avril 2023, passée au stade de guerre (1000+ décès/an) en janvier 2025 selon l'ONU.",
+      "sources": ["ONU (OCHA)", "ACLED", "HCR"],
+      "evenementsLies": ["2026-10-30-nairobi", "2026-10-18-khartoum"],
+      "historique": [
+        { "date": "2025-01-15", "statut": "guerre", "motif": "Généralisation du conflit, seuil guerre franchi — sources : ONU, ACLED" },
+        { "date": "2023-04-15", "statut": "conflit", "motif": "Début de la guerre civile SAF/RSF — source : UCDP" },
+        { "date": "2020-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-11-02"
+    },
+    "SYR": {
+      "nom": "Syrie", "statut": "guerre", "statutDepuis": "2013-01-01",
+      "nature": "Guerre civile internationalisée",
+      "acteurs": "Ancien régime Assad, groupes armés divers, puissances étrangères",
+      "faits": [
+        { "libelle": "Réfugiés à l'étranger", "valeur": "5,4 millions", "source": "HCR", "dateFait": "2026-06" },
+        { "libelle": "Personnes déplacées internes", "valeur": "6,5 millions", "source": "OCHA", "dateFait": "2026-09" }
+      ],
+      "resume": "Guerre civile depuis 2011, passée au stade de guerre (UCDP) en 2013 ; transition politique en cours depuis décembre 2024.",
+      "sources": ["ONU (OCHA)", "HCR", "ACLED", "Crisis Group"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2013-01-01", "statut": "guerre", "motif": "Généralisation de la guerre civile, seuil UCDP franchi — source : UCDP" },
+        { "date": "2011-03-15", "statut": "conflit", "motif": "Début du soulèvement et répression — source : ONU" },
+        { "date": "2010-01-01", "statut": "paix", "motif": "Aucun conflit armé actif — source : UCDP" }
+      ],
+      "maj": "2026-11-01"
+    },
+    "YEM": {
+      "nom": "Yémen", "statut": "guerre", "statutDepuis": "2014-09-21",
+      "nature": "Guerre civile et intervention étrangère",
+      "acteurs": "Houthis contre gouvernement reconnu et coalition arabe",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "4,5 millions", "source": "OCHA", "dateFait": "2026-09" },
+        { "libelle": "Personnes en insécurité alimentaire sévère", "valeur": "17 millions", "source": "PAM", "dateFait": "2026-08" }
+      ],
+      "resume": "Guerre au sens UCDP depuis septembre 2014 ; crise humanitaire parmi les pires au monde selon l'ONU.",
+      "sources": ["ONU (OCHA)", "PAM", "HCR", "ACLED"],
+      "evenementsLies": ["2026-10-20-aden"],
+      "historique": [
+        { "date": "2014-09-21", "statut": "guerre", "motif": "Prise de Sanaa par les Houthis, début de la guerre — source : ONU" },
+        { "date": "2011-02-01", "statut": "tension", "motif": "Soulèvement du « Printemps arabe » — source : ACLED" }
+      ],
+      "maj": "2026-11-02"
+    },
+    "ETH": {
+      "nom": "Éthiopie", "statut": "conflit", "statutDepuis": "2025-03-01",
+      "nature": "Conflit armé interne",
+      "acteurs": "Armée fédérale contre milices régionales (FANO) et groupes armés",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "1,2 million", "source": "OCHA", "dateFait": "2026-08" }
+      ],
+      "resume": "Conflit armé au sens UCDP depuis mars 2025, après la guerre du Tigré (2020-2022).",
+      "sources": ["OCHA", "ACLED", "ONU"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2025-03-01", "statut": "conflit", "motif": "Escalade des milices régionales, seuil UCDP franchi — sources : ACLED, ONU" },
+        { "date": "2020-11-01", "statut": "paix", "motif": "Accord de paix du Tigré — source : ONU" }
+      ],
+      "maj": "2026-10-30"
+    },
+    "MMR": {
+      "nom": "Birmanie / Myanmar", "statut": "guerre", "statutDepuis": "2021-02-01",
+      "nature": "Guerre civile suivant le coup d'État",
+      "acteurs": "Junte militaire contre résistance armée (PDF) et minorités armées",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "3,5 millions", "source": "OCHA", "dateFait": "2026-07" }
+      ],
+      "resume": "Guerre civile depuis le coup d'État de février 2021 ; guerre au sens UCDP.",
+      "sources": ["ONU (OCHA)", "ACLED", "UCDP"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2021-02-01", "statut": "guerre", "motif": "Coup d'État et guerre civile — source : UCDP" },
+        { "date": "2020-01-01", "statut": "tension", "motif": "Insurrection armée sporadique — source : ACLED" }
+      ],
+      "maj": "2026-10-25"
+    },
+    "HTI": {
+      "nom": "Haïti", "statut": "conflit", "statutDepuis": "2024-02-29",
+      "nature": "Effondrement de l'État, contrôle des gangs armés",
+      "acteurs": "Gangs armés (G9, GPèp) contre l'État",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "1 million", "source": "OCHA", "dateFait": "2026-06" },
+        { "libelle": "Homicides en 2025", "valeur": "4 000+", "source": "ONU", "dateFait": "2026-01" }
+      ],
+      "resume": "Conflit armé au sens UCDP depuis février 2024 : les gangs contrôlent la capitale.",
+      "sources": ["ONU (OCHA)", "ACLED", "HCR"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2024-02-29", "statut": "conflit", "motif": "Prise de Port-au-Prince par les gangs, seuil UCDP franchi — source : ONU" },
+        { "date": "2020-01-01", "statut": "tension", "motif": "Instabilité chronique — source : ACLED" }
+      ],
+      "maj": "2026-10-31"
+    },
+    "LBY": {
+      "nom": "Libye", "statut": "conflit", "statutDepuis": "2014-05-01",
+      "nature": "Guerre civile et fragmentation de l'État",
+      "acteurs": "Deux gouvernements rivaux (Tripoli / Syrte) et multiples milices",
+      "faits": [
+        { "libelle": "Personnes déplacées", "valeur": "300 000", "source": "HCR", "dateFait": "2026-06" }
+      ],
+      "resume": "Conflit armé au sens UCDP depuis mai 2014, avec deux exécutifs rivaux.",
+      "sources": ["ONU (OCHA)", "HCR", "ACLED"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2014-05-01", "statut": "conflit", "motif": "Deuxième guerre civile, seuil UCDP franchi — source : UCDP" },
+        { "date": "2011-02-17", "statut": "tension", "motif": "Soulèvement contre Kadhafi — source : ACLED" }
+      ],
+      "maj": "2026-10-22"
+    },
+    "AFG": {
+      "nom": "Afghanistan", "statut": "conflit", "statutDepuis": "2021-08-15",
+      "nature": "Conflit armé prolongé, résistance sporadique",
+      "acteurs": "Émirat islamique (Taliban) contre résistance (NRF) et EI-K",
+      "faits": [
+        { "libelle": "Réfugiés afghans à l'étranger", "valeur": "6 millions", "source": "HCR", "dateFait": "2026-06" }
+      ],
+      "resume": "Conflit armé au sens UCDP depuis la prise de Kaboul par les Taliban en août 2021.",
+      "sources": ["HCR", "ONU (OCHA)", "ACLED"],
+      "evenementsLies": [],
+      "historique": [
+        { "date": "2021-08-15", "statut": "conflit", "motif": "Prise de Kaboul par les Taliban — source : ONU" },
+        { "date": "2001-10-07", "statut": "guerre", "motif": "Intervention internationale — source : ONU" }
+      ],
+      "maj": "2026-10-15"
+    }
+  }
+}
